@@ -21,6 +21,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        btnCadastrar.setOnClickListener {
+            startActivity(Intent(this, CadastrarMedicoActivity::class.java))
+        }
+
 
     }
 }
