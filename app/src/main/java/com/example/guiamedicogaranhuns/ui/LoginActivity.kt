@@ -1,5 +1,7 @@
 package com.example.guiamedicogaranhuns.ui
 
+
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -54,20 +56,27 @@ class LoginActivity : AppCompatActivity() {
                     call: Call<LoginResponse>,
                     response: Response<LoginResponse>
                 ) {
-                    if (response.isSuccessful) {
+                    if (response.isSuccessful && response.body()?.user != null) {
+
                         Toast.makeText(
                             this@LoginActivity,
-                            response.body()?.mensagem ?: "Resposta vazia",
+                            "Login realizado com sucesso",
                             Toast.LENGTH_SHORT
                         ).show()
+
+                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
+
                     } else {
                         Toast.makeText(
                             this@LoginActivity,
-                            "Erro no login",
+                            "Login inválido",
                             Toast.LENGTH_SHORT
                         ).show()
                     }
                 }
+
 
                 override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                     Toast.makeText(
