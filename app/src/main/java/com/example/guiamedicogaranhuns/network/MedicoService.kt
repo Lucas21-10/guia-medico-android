@@ -28,6 +28,6 @@ interface MedicoService {
 
     // DELETE
     @DELETE("medicos/{id}")
-    fun deletarMedico(@Path("id") id: Int): Call<Void>
+    fun excluirMedico(@Path("id") id: Int): Call<Void>
 }
 

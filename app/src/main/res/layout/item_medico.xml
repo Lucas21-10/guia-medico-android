@@ -16,5 +16,14 @@
         android:id="@+id/txtEspecialidade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+    <ImageButton
+        android:id="@+id/btnExcluir"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@android:drawable/ic_menu_delete"
+        android:background="@android:color/holo_red_dark"
+        android:contentDescription="Excluir médico"/>
+
 </LinearLayout>
 
