@@ -48,7 +48,7 @@ class ListaMedicosActivity : AppCompatActivity() {
                     recyclerView.adapter = MedicoAdapter(
                         listaMedicos,
 
-                        // deletar
+                        // 🗑️ DELETE
                         onExcluirClick = { medico ->
                             val idMedico = medico.id ?: return@MedicoAdapter
 
@@ -81,11 +81,11 @@ class ListaMedicosActivity : AppCompatActivity() {
                                 })
                         },
 
-                        // ✏️ UPDATE (NOVO — ainda não implementa lógica, só navega)
-                        onItemClick = { medico ->
+                        // ✏️ UPDATE (BOTÃO ATUALIZAR)
+                        onAtualizarClick = { medico ->
                             val intent = Intent(
                                 this@ListaMedicosActivity,
-                                CadastrarMedicoActivity::class.java
+                                EditarMedicoActivity::class.java
                             )
                             intent.putExtra("medico", medico)
                             startActivity(intent)
@@ -110,6 +110,12 @@ class ListaMedicosActivity : AppCompatActivity() {
             }
         })
     }
+
+    override fun onResume() {
+        super.onResume()
+        carregarMedicos()
+    }
 }
+
 
 
