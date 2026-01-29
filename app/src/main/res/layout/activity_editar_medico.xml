@@ -1,32 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:fillViewport="true"
+    android:background="#FAFAFA">
 
-    <EditText
-        android:id="@+id/edtNome"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nome do médico" />
+        android:orientation="vertical"
+        android:padding="24dp">
 
-    <EditText
-        android:id="@+id/edtEspecialidade"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Especialidade" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Editar Registro"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginBottom="8dp"/>
 
-    <EditText
-        android:id="@+id/edtCrm"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="CRM" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Atualize as informações do profissional abaixo."
+            android:textColor="#757575"
+            android:layout_marginBottom="32dp"/>
 
-    <Button
-        android:id="@+id/btnAtualizar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Atualizar Médico" />
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="Nome Completo"
+            app:startIconDrawable="@android:drawable/ic_menu_edit">
 
-</LinearLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtNome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="Especialidade Médica"
+            app:startIconDrawable="@android:drawable/ic_menu_view">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtEspecialidade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapWords" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:hint="Número do CRM"
+            app:helperText="Ex: 12345-PE"
+            app:startIconDrawable="@android:drawable/ic_menu_info_details">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtCrm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapCharacters" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAtualizar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Salvar Alterações"
+            android:textSize="16sp"
+            app:cornerRadius="8dp"
+            app:icon="@android:drawable/ic_menu_save"
+            app:iconGravity="textStart" />
+
+    </LinearLayout>
+</ScrollView>
